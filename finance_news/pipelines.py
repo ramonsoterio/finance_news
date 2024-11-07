@@ -6,7 +6,6 @@
 from itemadapter import ItemAdapter
 
 from datetime import datetime
-from soupsieve.util import lower
 import re
 
 class FinanceNewsPipeline:
@@ -34,7 +33,7 @@ class FinanceNewsPipeline:
             "nov": "Nov",
             "dez": "Dec",
         }
-        english_month_name = available_months[lower(divided_date[MONTH])]
+        english_month_name = available_months[divided_date[MONTH].lower()]
         divided_date[MONTH] = english_month_name
         cleaned_date = " ".join(divided_date)
         date_format = "%d %b %Y, %H:%M"
